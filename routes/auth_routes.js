@@ -18,7 +18,8 @@ router.get('/google', passport.authenticate('google', {
 
 // google oauth redirect after consent
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  res.send("We've got you");
+  // res.send("We've got you");
+  res.redirect("/profile");
 });
 
 
