@@ -8,7 +8,9 @@ router.get('/login', (req, res) => {
 
 // logout
 router.get('/logout', (req, res) => {
-  res.send("Logging out");
+  // res.send("Logging out");
+  req.logout();
+  res.redirect("/");
 });
 
 // google+ oauth consent

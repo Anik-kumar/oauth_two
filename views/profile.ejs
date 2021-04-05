@@ -3,13 +3,28 @@
   <title>Profile</title>
 
   <%- include('post_header') -%>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <% if(user){ %>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      <% } else { %>
+        <li><a href="/auth/login">Login</a></li>
+      <% } %>
+    </ul>
+    <% if(user) { %>
+      <img src="<%= user.thumbnail %>" alt="thumbnail" width="40px">
+    <% } %>
+  </nav>
 
   <header>
-    <h1>Profile Page</h1>
+    <h1>Profile</h1>
   </header>
   <main>
-    <h3>Hello <%= _fullName %> </h3>
-    <p> ID: <%= _user.id %> </p>
-    <p> Username: <%= _user.username %> </p>
+    <h3>Hello <%= fullName %> </h3>
+    <p> ID: <%= user.id %> </p>
+    <p> Username: <%= user.username %> </p>
     <p> More: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil molestiae esse minima odio omnis minus deserunt asperiores aliquid autem mollitia optio perferendis laudantium nobis tenetur, eveniet, consequatur fugit dolor ullam.</p>
+    <img src="<%= user.thumbnail %>" alt="thumbnail">
   </main>

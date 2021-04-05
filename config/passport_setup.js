@@ -42,7 +42,8 @@ passport.use(
       new User({
         username: (profileInfo.name.givenName + "_" + profileInfo.name.familyName).toLowerCase(),
         googleId: profileInfo.id,
-        fullname: profileInfo.displayName
+        fullname: profileInfo.displayName,
+        thumbnail: profileInfo._json.picture
       }).save()
         .then(resp => {
           console.log("User is stored in db")

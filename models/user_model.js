@@ -7,7 +7,8 @@ const userSchema = new Schema({
   googleId: {
     type: String,
     index: true
-  }
+  },
+  thumbnail: String
 });
 
 const User = mongooes.model('user', userSchema);

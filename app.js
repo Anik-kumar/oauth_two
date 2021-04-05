@@ -12,7 +12,7 @@ const commonRoutes = require("./routes/common_routes");
 app.set('view engine', 'ejs');
 
 app.use(cookieSession({
-  maxAge: 1000*60*60*24,
+  maxAge: 1000*60*60,
   keys: [session.cookieKey]
 }));
 
@@ -30,10 +30,6 @@ mongoose.connect(mongodb.connectLocal, {useNewUrlParser: true, useUnifiedTopolog
 
 app.use("/auth", authRoutes);
 app.use(commonRoutes);
-// home route
-app.get('/', (req, res) => {
-  res.render("home");
-});
 
 
 const port = process.env.PORT | 3000;

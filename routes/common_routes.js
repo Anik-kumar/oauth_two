@@ -8,10 +8,14 @@ const checkLogin = (req, res, next) => {
   }
 }
 
+// home route
+router.get('/', (req, res) => {
+  res.render("home", { user: req.user });
+});
 
-
+// profile
 router.get('/profile', checkLogin, (req, res) => {
-  res.render('profile', { _fullName: req.user.fullname, _user: req.user });
+  res.render('profile', { fullName: req.user.fullname, user: req.user });
 });
 
 
